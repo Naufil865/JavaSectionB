@@ -72,7 +72,7 @@ public class Utility {
 						return;
 				}
 				// find highest index j to the right of index i such that
-				// s[j] > s[i–1] (s[i..n-1] is sorted in reverse order)
+				// s[j] > s[iï¿½1] (s[i..n-1] is sorted in reverse order)
 
 				int j = n - 1;
 				while (j > i && s[j] <= s[i - 1])
@@ -100,6 +100,12 @@ public class Utility {
 			}
 		}
 	}
+		/**
+		 * @param str
+		 * @param i
+		 * @param j
+		 * @return
+		 */
 		public static String swap(String str, int i, int j) {
 			char temp;
 			char[] charArray = str.toCharArray();
@@ -108,5 +114,160 @@ public class Utility {
 			charArray[j] = temp;
 			return String.valueOf(charArray);
 		}
-	
+		public boolean LeapYearValidation(int year) {
+			if (year >= 1582 && year <= 9999)
+				return true;
+			return false;
+
+		}
+		
+		public boolean Leapyear(int year) {
+			if (year % 4 == 0 || year % 400 == 0 && year % 100 != 0) {
+				return true;
+			} else {
+				return false;
+			}
+			
+		}
+		public boolean checkValidationDate(int month,int day,boolean leapyear) {
+			
+			switch(month) {
+			case 1:
+				if(day > 0 && day < 31)
+					return true;
+				else
+					return false;
+				
+			case 2:
+				if (leapyear) {
+					if (day > 0 && day <= 29) {
+						return true;
+					} else {
+						return false;
+					}
+
+				} else {
+					if (day > 0 && day <= 28) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			case 3:
+				if (day > 0 && day <= 31) {
+					return true;
+				} else {
+					return false;
+				}
+			case 4:
+				if (day > 0 && day <= 30) {
+					return true;
+				} else {
+					return false;
+				}
+			case 5:
+				if (day > 0 && day <= 31) {
+					return true;
+				} else {
+					return false;
+				}
+			case 6:
+				if (day > 0 && day <= 30) {
+					return true;
+				} else {
+					return false;
+				}
+			case 7:
+				if (day > 0 && day <= 31) {
+					return true;
+				} else {
+					return false;
+				}
+			case 8:
+				if (day > 0 && day <= 31) {
+					return true;
+				} else {
+					return false;
+				}
+			case 9:
+				if (day > 0 && day <= 30) {
+					return true;
+				} else {
+					return false;
+				}
+			case 10:
+				if (day > 0 && day <= 31) {
+					return true;
+				} else {
+					return false;
+				}
+			case 11:
+				if (day > 0 && day <= 30) {
+					return true;
+				} else {
+					return false;
+				}
+			case 12:
+				if (day > 0 && day <= 31) {
+					return true;
+				} else {
+					return false;
+				}
+			default:
+				System.out.println("Please enter valid input");
+		
+		}
+			return false;
+		
+		}
+
+		public static int calculateDayOfWeek(int day, int month, int year) {
+			int y1, x, m, d1;
+			y1 = year - (14 - month) / 12;
+			x = y1 + (y1 / 4) - (y1 / 100) + (y1 / 400);
+			m = month + 12 * ((14 - month) / 12) - 2;
+			d1 = (day + x + 31 * m / 12) % 7;
+			return d1;
+		}
+		public static int daysOfMonth(int month, boolean leapyear) {
+
+			switch (month) {
+			case 1:
+				return 31;
+			case 2:
+				if (leapyear)
+					return 29;
+				else
+					return 28;
+			case 3:
+				return 31;
+			case 4:
+				return 30;
+			case 5:
+				return 31;
+			case 6:
+				return 30;
+			case 7:
+				return 31;
+			case 8:
+				return 31;
+			case 9:
+				return 30;
+			case 10:
+				return 31;
+			case 11:
+				return 30;
+			case 12:
+				return 31;
+			}
+			return 0;
+		}
+		
+		public static double MathFuction(int c,double r,int t) {
+			double presentValue,a;
+			a = c / (1 + r);
+			presentValue = Math.pow(a, t);
+			return presentValue;
+		}
+		
 }
