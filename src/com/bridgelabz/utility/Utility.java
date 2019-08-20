@@ -114,6 +114,7 @@ public class Utility {
 			charArray[j] = temp;
 			return String.valueOf(charArray);
 		}
+
 		public boolean LeapYearValidation(int year) {
 			if (year >= 1582 && year <= 9999)
 				return true;
@@ -270,4 +271,157 @@ public class Utility {
 			return presentValue;
 		}
 		
+	/**
+	 * @param arr of intger
+	 * @return	min value
+	 */
+	public static int getMin(int[] arr) {
+		int minValue = arr[0];
+		for(int i = 1 ; i < arr.length ;i++) {
+			if(arr[i] < minValue) {
+				minValue = arr[i];
+			}
+		}
+		return minValue;
+	}
+	
+	public static int getMax(int[] arr) {
+		int maxValue = arr[0];
+		for(int i = 1 ; i < arr.length ;i++) {
+			if(arr[i] > maxValue) {
+				maxValue = arr[i];
+			}
+		}
+		return maxValue;
+	}
+	
+	/**
+	 * @param x1
+	 * @param y1
+	 * @param x2
+	 * @param y2
+	 * @param x3
+	 * @param y3
+	 */
+	public static void checkCollinearUsingScope(int x1,int y1,int x2,int y2,int x3,int y3) {
+		
+		double SlopeAB,SlopeBC,SlopeAC;
+		SlopeAB = (y2-y1)/(x2-x1);
+		SlopeBC = (y3-y2)/(x3-x2);
+		SlopeAC = (y3-y1)/(x3-x1);
+		if(SlopeAB == SlopeBC ) {
+			if(SlopeBC == SlopeAC) {
+				System.out.println("Collinear");
+			}else {
+				System.out.println("Not Collinear");
+			}
+		}
+	}
+		
+	/**
+	 * For Harmonic Series
+	 * @param number
+	 */
+	public static void Printharmonic(int number){
+		System.out.print("H = ");
+		for(int i = 1 ; i <= number ; i++ )
+		{
+			if(i != number) 
+			{
+				System.out.print(" 1 / "+ i);
+				System.out.print(" + ");
+			
+			}
+			else
+			{
+				System.out.print("1 / " + i);
+			}
+		}
+	}
+	
+	/**
+	 * @param degree
+	 * @return
+	 */
+	public static double findRadian(int degree) {
+		return Math.toRadians(degree);
+	}
+	public static double findSin(double radian) {
+		return Math.sin(radian);
+	}
+	public static double findCosine(double radian) {
+		return Math.cos(radian);
+	}
+	
+	/**
+	 * Decimal to Binary
+	 * @param decimal
+	 * @return
+	 */
+	public static String findBinary(int decimal) {
+		int mod;
+		String x = " ";
+		if(decimal > 255) {
+			System.out.println("Please enter Value Between 0 to 255 ");
+		}else {
+			while(decimal > 0) {
+				mod = decimal % 2;
+				x = mod + " " + x;
+				decimal = decimal / 2;
+			}
+		}
+		return x;
+	}
+	
+	/**
+	 * SquareRoot 
+	 * @param c
+	 * @param epsilon
+	 * @return
+	 */
+	public static double findSquareRoot(double c ,double epsilon) {
+		double t;
+		t = c;
+		while(Math.abs(t - c / t ) > epsilon * t) {
+			t = (c / t + t) / 2;
+		}
+		return t;
+	}
+	
+	/**
+	 * @param n
+	 * @return
+	 */
+	public static boolean findPrime(int n) {
+		if(n == 0 || n == 1) {
+			return false;
+		}else {
+			for(int i=2 ; i <= n / 2 ; i++) {
+				if(i % n == 0) {
+					return false;
+				}
+			}
+			return true;
+		}
+	}
+	
+	/**
+	 * @param num
+	 * @return
+	 */
+	public static long factorial(int num) {
+		long fact = 1;
+		for(int i = 1 ; i <= num ;i++) {
+			fact = fact * i;
+		}
+		return fact;
+	}
+	
+	public static double futureValue(int c,double r,int t) {
+		double result,a;
+		a = c*(1+r);
+		result = Math.pow(a, t);
+		return result;
+	}
+	
 }
