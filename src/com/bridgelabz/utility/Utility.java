@@ -108,5 +108,29 @@ public class Utility {
 			charArray[j] = temp;
 			return String.valueOf(charArray);
 		}
+		
+	/**
+	 * @param arr of intger
+	 * @return	min value
+	 */
+	public static int getMin(int[] arr) {
+		int minValue = arr[0];
+		for(int i = 1 ; i < arr.length ;i++) {
+			if(arr[i] < minValue) {
+				minValue = arr[i];
+			}
+		}
+		return minValue;
+	}
+	
+	public static int getMax(int[] arr) {
+		int maxValue = arr[0];
+		for(int i = 1 ; i < arr.length ;i++) {
+			if(arr[i] > maxValue) {
+				maxValue = arr[i];
+			}
+		}
+		return maxValue;
+	}
 	
 }
