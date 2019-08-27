@@ -14,7 +14,7 @@ import java.util.Scanner;
 import com.bridgelabz.utility.Utility;
 
 public class MathFunction {
-
+	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Select \n 1. PresentValue \n 2. PrintHarmonic \n 3. Sin Of Angle \n "
@@ -79,11 +79,13 @@ public class MathFunction {
 			System.out.println("Enter Number : ");
 			n = scanner.nextInt();
 			System.out.println("your number is "+ n + " Prime = " + Utility.findPrime(n));
+			break;
 		case 8:
 			int num;
 			System.out.println("Enter Number :");
 			num = scanner.nextInt();
 			System.out.println("Your number "+num + " Factorial of Number = "+Utility.factorial(num));
+			break;
 		case 9:
 			int compound,time;
 			double rate;

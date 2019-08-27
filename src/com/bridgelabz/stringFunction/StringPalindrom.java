@@ -8,15 +8,15 @@ public class StringPalindrom {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		
+
 		String str;
 		System.out.println("Enter The String : ");
 		str = scanner.next();
 		
 		if(Utility.checkPalindrom(str)) {
-			System.out.println("String is palindrome");
+			System.out.println(str+" String is palindrome");
 			}else {
-				System.out.println("String is not palindrome");
+				System.out.println(str+" is not a palindrome");
 			}
 	scanner.close();
 

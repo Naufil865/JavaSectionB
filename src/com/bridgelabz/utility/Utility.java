@@ -28,18 +28,20 @@ public class Utility {
 	 * @return
 	 */
 	public static boolean checkPalindrom(String str) {
-		String reverse = " ";
-		for(int i = str.length()- 1 ; i >=0 ;i--) {
-			reverse = reverse + str.charAt(i);
-		}
-		if(str != reverse) {
-			return false;
-		}else {
-			return true;
-		}
+		int length = str.length();
+		 String rev = "";
+	      for ( int i = length - 1; i >= 0; i-- )
+	         rev = rev + str.charAt(i);
+	 
+	      if (str.equals(rev))
+	         return true;
+	      else
+	         return false;
+	 
+	   }
 		
 		
-	}
+	
 	
 	// Utility function to swap two characters in a character array
 		private static void swap(char[] arr, int i, int j) {
@@ -423,5 +425,47 @@ public class Utility {
 		result = Math.pow(a, t);
 		return result;
 	}
+	
+	public static int test(int arr[]) {
+		int min = arr[0];
+		
+		for(int i=0 ; i<arr.length ;i++) {
+			if(min > arr[i]) {
+				min = arr[i];
+			}
+		}
+		return min;		
+	}
+	public static int test2(int arr[]) {
+		int max = arr[0];
+		for(int i = 0 ; i<arr.length-1 ; i++) {
+			if(max < arr[i])
+				max = arr[i];
+		}
+		return max;
+	}	
+	public static int secondsmall(int small,int secondsmall,int arr[]) {
+		for(int i = 0 ; i < arr.length ; i++) {
+			if(arr[i] < small) {
+				secondsmall = small;
+				small = arr[i];
+			}else if(arr[i] < secondsmall && arr[i] != small) {
+				secondsmall = arr[i];
+			}
+		}
+		return secondsmall;
+	}
+	public static int secondlarge(int large,int secondlarge,int arr[]) {
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i] > large) {
+				secondlarge = large;
+				large = arr[i];				
+			}else if(arr[i] > secondlarge && arr[i] != large) {
+				secondlarge = arr[i];
+			}
+		}
+		return secondlarge;
+	}
+	
 	
 }
